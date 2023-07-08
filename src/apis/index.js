@@ -21,11 +21,21 @@ export const fetchPopularData = async () => {
     },
   });
 };
+
 export const fetchselectedData = async (id) => {
   return await youtube.get("/videos", {
     params: {
       ...params,
       id,
+    },
+  });
+};
+
+export const fetchRelatedData = async (id) => {
+  return await youtube.get("/search", {
+    params: {
+      ...params,
+      relatedToVideoId:id,
     },
   });
 };
